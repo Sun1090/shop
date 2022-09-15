@@ -1,64 +1,43 @@
 <template>
   <footer class="footer_guide border-1px">
-    <div
-      class="guide_item"
-      @click="goto('/msite')"
-      :class="{ on: isCurrent('/msite') }"
-    >
+    <span class="guide_item" :class="{on: '/msite'===$route.path}" @click="goTo('/msite')">
       <span class="item_icon">
         <i class="iconfont icon-waimai"></i>
       </span>
-      <span>首页</span>
-    </div>
-    <div
-      class="guide_item"
-      @click="goto('/search')"
-      :class="{ on: isCurrent('/search') }"
-    >
+      <span>外卖</span>
+    </span>
+    <span class="guide_item" :class="{on: '/search'===$route.path}" @click="goTo('/search')">
       <span class="item_icon">
         <i class="iconfont icon-search"></i>
       </span>
       <span>搜索</span>
-    </div>
-    <div
-      class="guide_item"
-      @click="goto('/order')"
-      :class="{ on: isCurrent('/order') }"
-    >
+    </span>
+    <span class="guide_item" :class="{on: '/order'===$route.path}" @click="goTo('/order')">
       <span class="item_icon">
         <i class="iconfont icon-dingdan"></i>
       </span>
       <span>订单</span>
-    </div>
-    <div
-      class="guide_item"
-      @click="goto('/profile')"
-      :class="{ on: isCurrent('/profile') }"
-    >
+    </span>
+    <span class="guide_item" :class="{on: '/profile'===$route.path}" @click="goTo('/profile')">
       <span class="item_icon">
         <i class="iconfont icon-geren"></i>
       </span>
       <span>我的</span>
-    </div>
+    </span>
   </footer>
 </template>
-
 <script>
-export default {
-  methods: {
-    goto(path) {
-      this.$router.replace(path);
-    },
-    isCurrent(path) {
-      // console.log(this.$route.path)
-      return this.$route.path === path;
+  export default {
+    methods: {
+      goTo (path) {
+        this.$router.replace(path)
+      }
     }
   }
-};
 </script>
-
-<style lang="stylus">
+<style lang="stylus" rel="stylesheet/stylus">
   @import "../../common/stylus/mixins.styl"
+
   .footer_guide  //footer
     top-border-1px(#e4e4e4)
     position fixed
